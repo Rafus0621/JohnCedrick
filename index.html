@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <title>John Cedrick Pacino | Web Developer, Video Editor & VA Portfolio</title>
+    <meta name="description" content="The professional portfolio of John Cedrick Pacino, a skilled web developer, video editor, and virtual assistant specializing in UI/UX design, Shopify, video content creation, and functional websites.">
+    <meta name="keywords" content="John Cedrick Pacino, Web Developer, Virtual Assistant, Video Editor, Video Editing, Content Creator, UI/UX Designer, Shopify Expert, Freelancer, Portfolio">
+    <meta name="author" content="John Cedrick Pacino">
+    <link rel="canonical" href="https://portfolio-johnpacino.netlify.app/">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://portfolio-johnpacino.netlify.app/">
+    <meta property="og:title" content="John Cedrick Pacino | Web Developer, Video Editor & VA Portfolio">
+    <meta property="og:description" content="Explore the work of John Cedrick Pacino, a web developer, video editor, and virtual assistant creating beautiful and functional digital experiences.">
+    <meta property="og:image" content="https://portfolio-johnpacino.netlify.app/asset/Picture.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://portfolio-johnpacino.netlify.app/">
+    <meta property="twitter:title" content="John Cedrick Pacino | Web Developer, Video Editor & VA Portfolio">
+    <meta property="twitter:description" content="Explore the work of John Cedrick Pacino, a web developer, video editor, and virtual assistant creating beautiful and functional digital experiences.">
+    <meta property="twitter:image" content="https://portfolio-johnpacino.netlify.app/asset/Picture.png">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>J</text></svg>">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" xintegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        :root {
+            --font-mont: 'Montserrat', sans-serif;
+            --dark-bg: #121212;
+            --dark-text: #f5f5f5;
+            --dark-text-secondary: #a1a1aa;
+            --dark-border: #2727a;
+            --dark-card-bg: #18181b;
+            --primary: #B63E96; 
+            --primary-dark: #58E6D9;
+        }
+
+        /* Base styles */
+        body {
+            font-family: var(--font-mont);
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+            overflow-x: hidden;
+            cursor: auto;
+        }
+
+        /* Header Glassmorphism */
+        header {
+            transition: background-color 0.5s ease;
+        }
+        header.scrolled {
+            background-color: rgba(18, 18, 18, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--dark-border);
+        }
+        header.at-top nav a { color: #111827; }
+        header.at-top #hamburger-button span { background-color: #111827; }
+        header.scrolled nav a, header #mobile-menu nav a { color: var(--dark-text); }
+        header.scrolled #hamburger-button span { background-color: var(--dark-text); }
+        
+        /* Dynamic title animation */
+        #dynamic-title {
+            display: inline-block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* --- UPDATED: Modern Scroll Transitions --- */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s cubic-bezier(0.175, 0.885, 0.32, 1), transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Custom animated underline */
+        .link-underline { position: relative; text-decoration: none; }
+        .link-underline::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background: linear-gradient(90deg, var(--primary), var(--primary-dark));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        }
+        .link-underline:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+        
+        /* Mobile menu & Hamburger */
+        #mobile-menu { transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.4s ease-in-out; }
+        #hamburger-button.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+        #hamburger-button.open span:nth-child(2) { opacity: 0; }
+        #hamburger-button.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+        /* Page Loader */
+        #loader { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--dark-bg); display: flex; justify-content: center; align-items: center; z-index: 9999; transition: opacity 0.7s ease, visibility 0.7s ease; }
+        #loader-logo { animation: pulse 1.5s infinite ease-in-out; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+
+        /* Marquee Animation for Tools */
+        .marquee { overflow: hidden; position: relative; width: 100%; padding: 1rem 0; }
+        .marquee-content { display: flex; width: max-content; animation: marquee-animation 60s linear infinite; }
+        .marquee-content:hover { animation-play-state: paused; }
+        @keyframes marquee-animation { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+        .tool-text { flex-shrink: 0; margin: 0 1.5rem; font-size: 1.75rem; font-weight: 700; background: linear-gradient(90deg, var(--primary), var(--primary-dark), var(--primary)); background-size: 200% auto; background-clip: text; -webkit-background-clip: text; color: transparent; -webkit-text-fill-color: transparent; animation: text-shine 4s linear infinite; transition: transform 0.3s ease-in-out; }
+        .tool-text:hover { transform: scale(1.1); }
+        @keyframes text-shine { to { background-position: -200% center; } }
+        
+        /* Interactive Card Effects */
+        .interactive-card { transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1), box-shadow 0.4s cubic-bezier(0.19, 1, 0.22, 1); position: relative; }
+        .interactive-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+        .interactive-card::before { content: ""; position: absolute; inset: 0; border-radius: 1rem; padding: 2px; background: linear-gradient(45deg, var(--primary), var(--primary-dark)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; opacity: 0; transition: opacity 0.3s ease-in-out; }
+        .interactive-card:hover::before { opacity: 1; }
+        
+        /* Typing effect */
+        .typing-cursor::after { content: '|'; animation: blink 1s step-end infinite; }
+        @keyframes blink { from, to { color: transparent; } 50% { color: inherit; } }
+        
+        /* Section Specific Overrides */
+        #home { background-color: #f5f5f5; }
+        #home h1, #home p { color: #111827; }
+        #home #dynamic-title { color: var(--primary-dark); }
+
+        /* Projects & Video Showcase - Shared Light Theme */
+        #projects, #video-showcase { background-color: #f5f5f5; }
+        #projects h2, #projects h3, #projects a, #projects span,
+        #video-showcase h2, #video-showcase h3, #video-showcase p { color: #111827; }
+        
+        #projects article.interactive-card,
+        #video-showcase article.interactive-card { background-color: #ffffff; border: 1px solid #e5e7eb; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); cursor: pointer; }
+        
+        #projects article.interactive-card:hover,
+        #video-showcase article.interactive-card:hover { box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+        
+        #projects article.interactive-card span.text-\[var\(--primary-dark\)\] { color: var(--primary) !important; }
+        #projects a.link-underline::after { background: linear-gradient(90deg, var(--primary), #a14e91); }
+
+        /* --- Project Tabs --- */
+        .project-tab {
+            padding: 0.75rem 2rem;
+            border-radius: 9999px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+        .project-tab.active {
+            background-color: #111827; /* Black background */
+            color: white;
+            border-color: #111827;
+        }
+        .project-tab.inactive {
+            background-color: transparent;
+            color: #6b7280; /* Gray text */
+            border-color: #e5e7eb; /* Light gray border */
+        }
+        .project-tab.inactive:hover {
+            border-color: var(--primary-dark);
+            color: #111827;
+        }
+
+        /* --- Video Showcase Specific Styles --- */
+        #drawer-overlay, #fullview-overlay {
+            position: fixed; inset: 0; z-index: 1000; display: none;
+            align-items: center; justify-content: center; padding: 1.5rem;
+            backdrop-filter: blur(10px); background: rgba(0, 0, 0, 0.9);
+        }
+        #drawer-overlay.active, #fullview-overlay.active { display: flex; }
+
+        .drawer-container {
+            max-width: 1100px; width: 100%; max-height: 90vh;
+            background: var(--dark-card-bg); border-radius: 2rem;
+            padding: 2.5rem; position: relative; overflow-y: auto;
+            border: 1px solid var(--dark-border); color: white;
+        }
+
+        .video-player {
+            aspect-ratio: 9/16; width: 100%; max-width: 300px;
+            border-radius: 1rem; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .sales-screenshot {
+            width: 100%; cursor: zoom-in; border-radius: 1rem;
+            transition: transform 0.3s ease;
+        }
+        .sales-screenshot:hover { transform: scale(1.02); }
+
+        /* --- REVAMPED: "What I Offer" Slider --- */
+        #services { background-color: var(--primary-dark); }
+        #services h2, #services h3, #services p { color: #111827; }
+        #service-slider-viewport { overflow: hidden; }
+        #service-slider-track { display: flex; align-items: center; /* Vertically align slides */ }
+        .service-slide {
+            flex: 0 0 70%; /* Adjust width for larger central image */
+            opacity: 0.4;
+            transform: scale(0.8);
+            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s ease;
+            cursor: pointer;
+        }
+        .service-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .service-slide img {
+            width: 100%;
+            border-radius: 1rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            pointer-events: none; /* Prevent image dragging issues */
+        }
+        #service-text-content {
+            min-height: 120px; /* Prevent layout shift */
+            transition: opacity 0.4s ease;
+        }
+        .service-nav-button {
+            position: absolute;
+            top: 40%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.5);
+            color: #111827;
+            border: none;
+            border-radius: 50%;
+            width: 3.5rem;
+            height: 3.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .service-nav-button:hover { background-color: rgba(255, 255, 255, 0.8); transform: translateY(-50%) scale(1.1); }
+        #service-prev { left: 0; }
+        #service-next { right: 0; }
+        @media (max-width: 768px) {
+            .service-slide { flex: 0 0 90%; }
+            .service-nav-button { top: 35%; width: 3rem; height: 3rem; }
+        }
+
+        /* Reviews Section Slider */
+        #reviews-slider-container { position: relative; width: 100%; max-width: 1200px; margin: auto; padding: 0 4rem; }
+        #reviews-slider-viewport { width: 100%; overflow: hidden; }
+        #reviews-slider-track { display: flex; transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1); }
+        .review-slide { flex: 0 0 100%; padding: 0 1rem; }
+        @media (min-width: 768px) { .review-slide { flex: 0 0 50%; } }
+        @media (min-width: 1024px) { .review-slide { flex: 0 0 33.33%; } }
+        .slider-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255, 255, 255, 0.1); color: var(--dark-text); border: 1px solid var(--dark-border); border-radius: 50%; width: 3rem; height: 3rem; font-size: 1.25rem; cursor: pointer; z-index: 10; transition: all 0.2s ease-in-out; }
+        .slider-button:hover { background-color: var(--primary-dark); color: #111827; }
+        #prev-slide { left: 0; }
+        #next-slide { right: 0; }
+        
+        /* Contact Form Styles */
+        #contact-form label { display: block; margin-bottom: 0.5rem; color: var(--dark-text-secondary); }
+        #contact-form input, #contact-form textarea { width: 100%; background-color: var(--dark-card-bg); border: 1px solid var(--dark-border); border-radius: 0.5rem; padding: 0.75rem 1rem; color: var(--dark-text); transition: border-color 0.3s, box-shadow 0.3s; }
+        #contact-form input:focus, #contact-form textarea:focus { outline: none; border-color: var(--primary-dark); box-shadow: 0 0 0 3px rgba(88, 230, 217, 0.3); }
+        #contact-form button { background-color: var(--primary-dark); color: #111827; transition: all 0.3s ease; }
+        #contact-form button:hover { background-color: #4ed1c4; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(88, 230, 217, 0.2); }
+
+        /* Premium Hire Me Button */
+        #hire-me-btn { background: black; color: white; animation: glowing-border 2.5s infinite ease-in-out; }
+        @keyframes glowing-border { 0%, 100% { box-shadow: 0 0 5px var(--primary-dark), 0 0 10px var(--primary-dark), 0 0 15px var(--primary-dark); } 50% { box-shadow: 0 0 20px var(--primary-dark), 0 0 30px var(--primary-dark), 0 0 40px var(--primary-dark); } }
+    </style>
+    
+    <script type="application/ld+json">
+    { "@context": "https://schema.org", "@type": "Person", "name": "John Cedrick Pacino", "url": "https://portfolio-johnpacino.netlify.app/", "sameAs": ["https://www.linkedin.com/in/johnpacino0326", "https://www.facebook.com/John.Fernandez0326/"], "jobTitle": "Web Developer and Virtual Assistant", "worksFor": { "@type": "Organization", "name": "Freelance" }, "image": "https://portfolio-johnpacino.netlify.app/asset/Picture.png", "description": "A multifaceted professional specializing in innovative web development and high-efficiency virtual assistance." }
+    </script>
+</head>
+<body class="w-full min-h-screen">
+
+    <div id="loader"> <div id="loader-logo" class="w-20 h-20 bg-white text-black flex items-center justify-center rounded-full text-3xl font-bold">JCP</div> </div>
+
+    <header id="header" class="w-full px-8 md:px-16 lg:px-32 py-6 font-medium flex items-center justify-between fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <button id="hamburger-button" class="flex-col justify-center items-center md:hidden z-30"> <span class=" block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"></span> <span class=" block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm my-1"></span> <span class=" block transition-all duration-300 ease-out h-0.5 w-6 rounded-sm"></span> </button>
+        <nav class="hidden md:flex items-center">
+             <a href="#home" class="mr-4 link-underline">Home</a>
+             <a href="#about" class="mx-4 link-underline">About</a>
+             <a href="#services" class="mx-4 link-underline">Services</a>
+             <a href="#projects" class="mx-4 link-underline">Projects</a>
+             <a href="#experience" class="ml-4 link-underline">Experience</a>
+        </nav>
+        <div class="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2"> <div class="flex items-center justify-center"> <a href="#home" class="w-16 h-16 bg-white text-black flex items-center justify-center rounded-full text-2xl font-bold border-2 border-transparent hover:scale-105 transition-transform duration-300">JCP</a> </div> </div>
+        <nav class="hidden md:flex items-center justify-center flex-wrap"> <a href="https://www.linkedin.com/in/johnpacino0326" target="_blank" class="w-6 mx-3 transition-transform hover:-translate-y-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-[#0077B5]"><path d="M22.23 0H1.77C.79 0 0 .79 0 1.77v20.46C0 23.21.79 24 1.77 24h20.46c.98 0 1.77-.79 1.77-1.77V1.77C24 .79 23.21 0 22.23 0zM7.12 20.45H3.56V9h3.56v11.45zM5.34 7.43c-1.14 0-2.06-.92-2.06-2.06s.92-2.06 2.06-2.06 2.06.92 2.06 2.06-.92 2.06-2.06 2.06zm15.11 13.02h-3.56v-5.6c0-1.34-.02-3.06-1.86-3.06s-2.15 1.45-2.15 2.96v5.7h-3.56V9h3.42v1.57h.05c.48-.9 1.65-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.28z"/></svg> </a> <a href="https://www.facebook.com/John.Fernandez0326/" target="_blank" class="w-6 mx-3 transition-transform hover:-translate-y-1"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="fill-[#1877F2]"><path d="M22.675 0h-21.35C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116c.732 0 1.323-.593 1.323-1.325V1.325C24 .593 23.407 0 22.675 0z"/></svg> </a> </nav> </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="relative flex items-center w-full min-h-screen px-8 md:px-16 lg:px-32">
+            <div class="relative w-full grid grid-cols-1 md:grid-cols-2 gap-8 items-center z-10">
+                <div class="w-full h-full reveal flex justify-center items-center">
+                    <img src="asset/Picture.png" alt="John Cedrick Pacino" class="w-2/3 h-auto rounded-2xl shadow-xl">
+                </div>
+                <div class="w-full flex flex-col items-center self-center text-left reveal" style="transition-delay: 200ms;">
+                    <h1 id="animated-text" class="text-3xl md:text-4xl lg:text-5xl font-bold capitalize text-left">
+                        <span id="dynamic-title-container"><span id="dynamic-title"></span></span><br />
+                        Turning Vision Into Reality With Code And Design.
+                    </h1>
+                    <p id="hero-description" class="my-4 text-base font-medium text-gray-700"></p>
+                    <div class="flex items-center self-start mt-2">
+                        <a href="mailto:johncedrick.pacino@gmail.com" class="flex items-center bg-black text-white p-2.5 px-6 rounded-lg text-lg font-semibold hover:bg-gray-800 transition-colors duration-300"> Contact <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg> </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll Down Button -->
+            <a href="#about" aria-label="Scroll to next section" class="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 text-gray-800 animate-bounce hover:text-[var(--primary-dark)] transition-colors duration-300">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+            </a>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-16 md:py-32 px-8 md:px-16 lg:px-32">
+            <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 md:mb-32 reveal">Passion Fuels Purpose!</h2>
+            <div class="grid w-full grid-cols-1 md:grid-cols-8 gap-8 md:gap-16 items-center">
+                <div class="md:col-span-3 flex flex-col items-start justify-start reveal" id="biography-text">
+                    <h3 class="mb-4 text-lg font-bold uppercase text-gray-400">Biography</h3>
+                    <p id="bio-p1" class="font-medium text-gray-200"></p> <p id="bio-p2" class="my-4 font-medium text-gray-200"></p> <p id="bio-p3" class="font-medium text-gray-200"></p>
+                </div>
+                <div class="md:col-span-3 relative h-max rounded-2xl border-2 border-solid border-white bg-gray-800 p-6 reveal shadow-xl interactive-card" style="transition-delay: 200ms;">
+                    <img src="asset/Picture2.jpeg" alt="John Cedrick Pacino working at his desk" class="w-full h-auto rounded-2xl">
+                </div>
+                <div class="md:col-span-2 flex flex-col items-end justify-between self-center reveal" style="transition-delay: 400ms;" id="stats-section">
+                    <div class="flex flex-col items-end justify-center text-right"> <span class="inline-block text-5xl md:text-7xl font-bold counter" data-target="5">0</span> <h2 class="text-xl font-medium capitalize text-gray-400">years of experience</h2> </div>
+                    <div class="flex flex-col items-end justify-center my-8 text-right"> <span class="inline-block text-5xl md:text-7xl font-bold counter" data-target="20">0</span> <h2 class="text-xl font-medium capitalize text-gray-400">satisfied clients</h2> </div>
+                    <div class="flex flex-col items-end justify-center text-right"> <span class="inline-block text-5xl md:text-7xl font-bold counter" data-target="40">0</span> <h2 class="text-xl font-medium capitalize text-gray-400">projects completed</h2> </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- REVAMPED Services Section -->
+        <section id="services" class="py-16 md:py-32 px-4 sm:px-8 md:px-16 lg:px-32 overflow-hidden">
+            <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 md:mb-32 reveal">What I Offer</h2>
+            <div id="service-slider-wrapper" class="relative w-full max-w-7xl mx-auto reveal" style="transition-delay: 200ms;">
+                <div id="service-slider-viewport">
+                    <div id="service-slider-track">
+                        <!-- Service slides will be dynamically injected here -->
+                    </div>
+                </div>
+                <div id="service-text-content" class="text-center mt-8 px-4">
+                    <h3 id="service-title" class="text-3xl font-bold"></h3>
+                    <p id="service-desc" class="mt-2 text-lg max-w-3xl mx-auto"></p>
+                </div>
+                <button id="service-prev" class="service-nav-button"><i class="fas fa-chevron-left"></i></button>
+                <button id="service-next" class="service-nav-button"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+        
+        <!-- Tools & Technologies Section -->
+        <section id="tools" class="py-16 md:py-32">
+            <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 md:mb-32 reveal">Tools & Technologies</h2>
+            <div class="reveal marquee" style="transition-delay: 200ms;">
+                <div class="marquee-content">
+                    <div class="flex items-center"> <span class="tool-text">JavaScript</span><span class="tool-text">HTML5</span><span class="tool-text">CSS3</span><span class="tool-text">Tailwind CSS</span><span class="tool-text">React</span><span class="tool-text">Node.js</span><span class="tool-text">Git</span><span class="tool-text">Figma</span><span class="tool-text">Shopify</span><span class="tool-text">WordPress</span><span class="tool-text">GoHighLevel</span><span class="tool-text">cPanel</span><span class="tool-text">Google Workspace</span><span class="tool-text">Microsoft Office Suite</span><span class="tool-text">Slack</span><span class="tool-text">Trello</span><span class="tool-text">Asana</span> </div>
+                    <div class="flex items-center" aria-hidden="true"> <span class="tool-text">JavaScript</span><span class="tool-text">HTML5</span><span class="tool-text">CSS3</span><span class="tool-text">Tailwind CSS</span><span class="tool-text">React</span><span class="tool-text">Node.js</span><span class="tool-text">Git</span><span class="tool-text">Figma</span><span class="tool-text">Shopify</span><span class="tool-text">WordPress</span><span class="tool-text">GoHighLevel</span><span class="tool-text">cPanel</span><span class="tool-text">Google Workspace</span><span class="tool-text">Microsoft Office Suite</span><span class="tool-text">Slack</span><span class="tool-text">Trello</span><span class="tool-text">Asana</span> </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Unified) -->
+        <section id="projects" class="py-16 md:py-32 px-8 md:px-16 lg:px-32 max-w-7xl mx-auto">
+             <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-10 md:mb-16 reveal">Imagination Trumps Knowledge!</h2>
+             
+             <!-- Project Tabs -->
+             <div class="flex justify-center items-center space-x-4 mb-12 reveal" style="transition-delay: 100ms;">
+                 <button onclick="showCategory('website')" id="tab-website" class="project-tab active">Website Projects</button>
+                 <button onclick="showCategory('video')" id="tab-video" class="project-tab inactive">Video Editing</button>
+             </div>
+
+             <!-- Website Projects Grid -->
+             <div id="grid-website" class="grid grid-cols-1 md:grid-cols-2 gap-12 project-grid">
+                <div class="reveal"> <article class="w-full flex flex-col items-center justify-center rounded-2xl p-6 relative interactive-card"> <a href="https://aguhonsolution.com/" target="_blank" class="w-full cursor-pointer overflow-hidden rounded-lg"> <img src="asset/aguhonsolution.png" alt="Aguhon Solution Project" class="w-full h-auto transform hover:scale-105 transition-transform duration-300"> </a> <div class="w-full flex flex-col items-start justify-between mt-4"> <span class="text-[var(--primary-dark)] font-medium text-xl">Corporate Landing Page</span> <h3 class="my-1 w-full text-left text-2xl font-bold">Aguhon Solution</h3> <div class="mt-2 w-full justify-between flex items-center"> <a href="https://aguhonsolution.com/" target="_blank" class="text-lg font-semibold link-underline">Visit Preview</a> </div> </div> </article> </div>
+                <div class="reveal" style="transition-delay: 200ms;"> <article class="w-full flex flex-col items-center justify-center rounded-2xl p-6 relative interactive-card"> <a href="https://emapta.com/" target="_blank" class="w-full cursor-pointer overflow-hidden rounded-lg"> <img src="asset/Emapta.png" alt="Emapta Project" class="w-full h-auto transform hover:scale-105 transition-transform duration-300"> </a> <div class="w-full flex flex-col items-start justify-between mt-4"> <span class="text-[var(--primary-dark)] font-medium text-xl">Corporate Website</span> <h3 class="my-1 w-full text-left text-2xl font-bold">Emapta</h3> <div class="mt-2 w-full justify-between flex items-center"> <a href="https://emapta.com/" target="_blank" class="text-lg font-semibold link-underline">Visit Preview</a> </div> </div> </article> </div>
+                <div class="reveal" style="transition-delay: 400ms;"> <article class="w-full flex flex-col items-center justify-center rounded-2xl p-6 relative interactive-card"> <a href="https://www.nextlevelapparel.com/" target="_blank" class="w-full cursor-pointer overflow-hidden rounded-lg"> <img src="asset/Nextlevel.png" alt="Next Level Apparel Project" class="w-full h-auto transform hover:scale-105 transition-transform duration-300"> </a> <div class="w-full flex flex-col items-start justify-between mt-4"> <span class="text-[var(--primary-dark)] font-medium text-xl">Shopify Store</span> <h3 class="my-1 w-full text-left text-2xl font-bold">Next Level Apparel</h3> <div class="mt-2 w-full justify-between flex items-center"> <a href="https://www.nextlevelapparel.com/" target="_blank" class="text-lg font-semibold link-underline">Visit Preview</a> </div> </div> </article> </div>
+                <div class="reveal" style="transition-delay: 600ms;"> <article class="w-full flex flex-col items-center justify-center rounded-2xl p-6 relative interactive-card"> <a href="https://travismathew.com/" target="_blank" class="w-full cursor-pointer overflow-hidden rounded-lg"> <img src="asset/Mathew.png" alt="TravisMathew Project" class="w-full h-auto transform hover:scale-105 transition-transform duration-300"> </a> <div class="w-full flex flex-col items-start justify-between mt-4"> <span class="text-[var(--primary-dark)] font-medium text-xl">Ecommerce Store</span> <h3 class="my-1 w-full text-left text-2xl font-bold">TravisMathew</h3> <div class="mt-2 w-full justify-between flex items-center"> <a href="https://travismathew.com/" target="_blank" class="text-lg font-semibold link-underline">Visit Preview</a> </div> </div> </article> </div>
+             </div>
+
+             <!-- Video Projects Grid -->
+             <div id="grid-video" class="hidden grid-cols-1 md:grid-cols-3 gap-8 project-grid">
+                
+                <!-- TC Set 1 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tc-set1')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TC/Set 1/screenshot.png" class="w-full h-48 object-cover" alt="TC Set 1" onerror="this.src='https://via.placeholder.com/400x225?text=TC+Set+1+Thumbnail'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TC Set 1</h3>
+                    </div>
+                </article>
+
+                <!-- TC Set 2 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tc-set2')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TC/Set 2/screenshot2.png" class="w-full h-48 object-cover" alt="TC Set 2" onerror="this.src='https://via.placeholder.com/400x225?text=TC+Set+2+Thumbnail'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TC Set 2</h3>
+                    </div>
+                </article>
+
+                <!-- TC Set 3 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tc-set3')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TC/Set 3/Screenshot3.png" class="w-full h-48 object-cover" alt="TC Set 3" onerror="this.src='https://via.placeholder.com/400x225?text=TC+Set+3+Thumbnail'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TC Set 3</h3>
+                    </div>
+                </article>
+
+                <!-- WonderMe Set 1 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('wm-set1')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/WonderMe/Set 1/screenshot.png" class="w-full h-48 object-cover" alt="WonderMe Set 1" onerror="this.src='https://via.placeholder.com/400x225?text=WonderMe+Set+1'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">WonderMe Set 1</h3>
+                    </div>
+                </article>
+
+                <!-- WonderMe Set 2 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('wm-set2')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/WonderMe/Set 2/screenshot2.png" class="w-full h-48 object-cover" alt="WonderMe Set 2" onerror="this.src='https://via.placeholder.com/400x225?text=WonderMe+Set+2'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">WonderMe Set 2</h3>
+                    </div>
+                </article>
+
+                <!-- WonderMe Set 3 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('wm-set3')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/WonderMe/Set 3/Screenshot3.png" class="w-full h-48 object-cover" alt="WonderMe Set 3" onerror="this.src='https://via.placeholder.com/400x225?text=WonderMe+Set+3'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">WonderMe Set 3</h3>
+                    </div>
+                </article>
+
+                <!-- TMT Set 1 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tmt-set1')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TMT/Set 1/screenshot.png" class="w-full h-48 object-cover" alt="TMT Set 1" onerror="this.src='https://via.placeholder.com/400x225?text=TMT+Set+1'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TMT Set 1</h3>
+                    </div>
+                </article>
+
+                <!-- TMT Set 2 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tmt-set2')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TMT/Set 2/screenshot2.png" class="w-full h-48 object-cover" alt="TMT Set 2" onerror="this.src='https://via.placeholder.com/400x225?text=TMT+Set+2'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TMT Set 2</h3>
+                    </div>
+                </article>
+
+                <!-- TMT Set 3 -->
+                <article class="interactive-card p-5 rounded-3xl" onclick="openDrawer('tmt-set3')">
+                    <div class="relative group mb-4 overflow-hidden rounded-2xl">
+                        <img src="asset/TMT/Set 3/Screenshot3.png" class="w-full h-48 object-cover" alt="TMT Set 3" onerror="this.src='https://via.placeholder.com/400x225?text=TMT+Set+3'">
+                        <div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-play text-white text-3xl"></i>
+                        </div>
+                    </div>
+                    <div class="w-full flex flex-col items-start justify-between mt-4">
+                        <span class="text-[var(--primary-dark)] font-medium text-xl">Video Editing & Sales Analysis</span>
+                        <h3 class="my-1 w-full text-left text-2xl font-bold">TMT Set 3</h3>
+                    </div>
+                </article>
+
+             </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-16 md:py-32 px-8 md:px-16 lg:px-32">
+            <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 md:mb-32 reveal">My Professional Journey</h2>
+             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div class="reveal">
+                    <h3 class="text-3xl font-bold text-center mb-8">Corporate Experience</h3>
+                    <div class="space-y-8 p-4 border-l-4 border-[var(--primary-dark)]">
+                        <div class="pl-4"> <h4 class="font-bold text-xl">Senior Process Executive</h4> <p class="font-semibold text-gray-400">Cognizant | Jul 2023 - Present</p> <p class="mt-2 text-gray-300">Generated monthly metric reports, interpreted results, and developed processes and solutions to address performance weaknesses.</p> </div>
+                        <div class="pl-4"> <h4 class="font-bold text-xl">Team Leader</h4> <p class="font-semibold text-gray-400">Sutherland Global Service | Jun 2021 - Jun 2023</p> <p class="mt-2 text-gray-300">Enhanced team productivity by implementing efficient work processes and regularly reviewing performance metrics while mentoring junior staff.</p> </div>
+                        <div class="pl-4"> <h4 class="font-bold text-xl">Account Supervisor</h4> <p class="font-semibold text-gray-400">IBEX Global | Mar 2020 - Jun 2021</p> <p class="mt-2 text-gray-300">Developed and deepened relationships with key customers by closely monitoring projects, providing information, and resolving concerns.</p> </div>
+                        <div class="pl-4"> <h4 class="font-bold text-xl">Technical Support Representative</h4> <p class="font-semibold text-gray-400">Startek Solution | Feb 2018 - Feb 2020</p> <p class="mt-2 text-gray-300">Delivered exceptional customer service by quickly addressing concerns and providing clear, concise explanations of technical solutions.</p> </div>
+                    </div>
+                </div>
+                <div class="reveal" style="transition-delay: 200ms;">
+                     <h3 class="text-3xl font-bold text-center mb-8">Freelance & VA Experience</h3>
+                    <div class="space-y-8 p-4 border-l-4 border-gray-600">
+                        <div class="pl-4"> <h4 class="font-bold text-xl">Web Developer</h4> <p class="font-semibold text-gray-400">Upwork (Remote) | Mar 2024 - Present</p> <p class="mt-2 text-gray-300">Write clean, efficient, and well-documented code using languages like HTML, CSS, and JavaScript. Ensure the technical feasibility of UI/UX designs.</p> </div>
+                        <div class="pl-4"> <h4 class="font-bold text-xl">GHL Administrative Support</h4> <p class="font-semibold text-gray-400">Upwork (Remote) | May 2023 - Feb 2024</p> <p class="mt-2 text-gray-300">Set up and configure new sub-accounts, including pipelines, calendars, and custom fields. Build, test, and manage automated workflows and campaigns.</p> </div>
+                        <div class="pl-4"> <h4 class="font-bold text-xl">cPanel Specialist</h4> <p class="font-semibold text-gray-400">Upwork (Remote) | Jan 2021 - Feb 2022</p> <p class="mt-2 text-gray-300">Manage all aspects of hosting accounts via WHM. Provide timely technical support to clients for cPanel, email, DNS, and FTP issues.</p> </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reviews Section -->
+        <section id="reviews" class="py-16 md:py-32 px-8 md:px-16 lg:px-32 bg-black/30">
+            <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 md:mb-32 reveal">What My Clients Say</h2>
+            <div id="reviews-slider-container" class="reveal" style="transition-delay:200ms">
+                <div id="reviews-slider-viewport">
+                    <div id="reviews-slider-track">
+                        <!-- Dynamically populated reviews -->
+                    </div>
+                </div>
+                <button id="prev-slide" class="slider-button"><i class="fas fa-chevron-left"></i></button>
+                <button id="next-slide" class="slider-button"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-16 md:py-32 px-8 md:px-16 lg:px-32">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="font-bold text-4xl md:text-6xl lg:text-8xl w-full text-center mb-16 reveal">Get In Touch</h2>
+                <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="space-y-6 reveal" style="transition-delay:200ms">
+                    <input type="hidden" name="apikey" value="8b300386-6454-4016-a817-01d3cd39f6bd"> <input type="hidden" name="subject" value="New Message from Portfolio Website"> <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6"> <div> <label for="name">Full Name</label> <input type="text" id="name" name="name" required> </div> <div> <label for="email">Email Address</label> <input type="email" id="email" name="email" required> </div> </div>
+                    <div> <label for="message">Message</label> <textarea id="message" name="message" rows="6" required></textarea> </div>
+                    <div class="text-center"> <button type="submit" class="font-semibold text-lg py-3 px-8 rounded-lg">Send Message</button> </div>
+                </form>
+                <div id="form-result" class="text-center mt-6 text-lg"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="w-full border-t-2 border-solid border-white font-medium text-lg px-8 md:px-16 lg:px-32 py-8 flex flex-col md:flex-row items-center justify-between">
+        <span>&copy; 2025 All Rights Reserved.</span>
+        <div class="flex items-center my-4 md:my-0"> Build With <span class="text-[var(--primary-dark)] text-2xl px-1 animate-pulse">&hearts;</span> by&nbsp;<a href="#home" class="link-underline">John Cedrick Pacino</a> </div>
+        <a href="mailto:johncedrick.pacino@gmail.com" class="link-underline">Say Hello</a>
+    </footer>
+
+    <a id="hire-me-btn" href="mailto:johncedrick.pacino@gmail.com" class="fixed left-4 bottom-4 z-20 hidden md:flex items-center justify-center w-20 h-20 hover:w-48 rounded-full font-semibold transition-all duration-500 ease-in-out group overflow-hidden">
+        <span class="absolute opacity-0 group-hover:opacity-100 group-hover:-translate-x-4 transition-all duration-300 delay-200">Hire Me</span>
+        <svg class="w-8 h-8 absolute group-hover:translate-x-14 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"> <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" /> </svg>
+    </a>
+
+    <!-- Drawer Overlays (Video Showcase) -->
+    <div id="drawer-overlay" onclick="closeDrawer()">
+        
+        <!-- TC Set 1 Content -->
+        <div id="drawer-tc-set1" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TC/Set 1/Set1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TC Set 1 Insights</h3>
+                    <p class="text-gray-400 mb-6">Vertical video (9:16) and conversion metrics. Click image to expand.</p>
+                    <img src="asset/TC/Set 1/screenshot.png" class="sales-screenshot" alt="TC Sales 1" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TC+Set+1+Sales+Data'">
+                </div>
+            </div>
+        </div>
+    
+        <!-- TC Set 2 Content -->
+        <div id="drawer-tc-set2" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TC/Set 2/Set2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TC Set 2 Insights</h3>
+                    <p class="text-gray-400 mb-6">High-engagement transitions analysis. Click image to expand.</p>
+                    <img src="asset/TC/Set 2/screenshot2.png" class="sales-screenshot" alt="TC Sales 2" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TC+Set+2+Sales+Data'">
+                </div>
+            </div>
+        </div>
+    
+        <!-- TC Set 3 Content -->
+        <div id="drawer-tc-set3" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TC/Set 3/Set3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TC Set 3 Insights</h3>
+                    <p class="text-gray-400 mb-6">Final validation and growth summary. Click image to expand.</p>
+                    <img src="asset/TC/Set 3/Screenshot3.png" class="sales-screenshot" alt="TC Sales 3" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TC+Set+3+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- WonderMe Set 1 Content -->
+        <div id="drawer-wm-set1" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/WonderMe/Set 1/Set1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">WonderMe Set 1 Insights</h3>
+                    <p class="text-gray-400 mb-6">Vertical video (9:16) and conversion metrics. Click image to expand.</p>
+                    <img src="asset/WonderMe/Set 1/screenshot.png" class="sales-screenshot" alt="WonderMe Sales 1" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=WonderMe+Set+1+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- WonderMe Set 2 Content -->
+        <div id="drawer-wm-set2" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/WonderMe/Set 2/Set2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">WonderMe Set 2 Insights</h3>
+                    <p class="text-gray-400 mb-6">High-engagement transitions analysis. Click image to expand.</p>
+                    <img src="asset/WonderMe/Set 2/screenshot2.png" class="sales-screenshot" alt="WonderMe Sales 2" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=WonderMe+Set+2+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- WonderMe Set 3 Content -->
+        <div id="drawer-wm-set3" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/WonderMe/Set 3/Set3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">WonderMe Set 3 Insights</h3>
+                    <p class="text-gray-400 mb-6">Final validation and growth summary. Click image to expand.</p>
+                    <img src="asset/WonderMe/Set 3/Screenshot3.png" class="sales-screenshot" alt="WonderMe Sales 3" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=WonderMe+Set+3+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- TMT Set 1 Content -->
+        <div id="drawer-tmt-set1" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TMT/Set 1/Set1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TMT Set 1 Insights</h3>
+                    <p class="text-gray-400 mb-6">Vertical video (9:16) and conversion metrics. Click image to expand.</p>
+                    <img src="asset/TMT/Set 1/screenshot.png" class="sales-screenshot" alt="TMT Sales 1" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TMT+Set+1+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- TMT Set 2 Content -->
+        <div id="drawer-tmt-set2" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TMT/Set 2/Set2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TMT Set 2 Insights</h3>
+                    <p class="text-gray-400 mb-6">High-engagement transitions analysis. Click image to expand.</p>
+                    <img src="asset/TMT/Set 2/screenshot2.png" class="sales-screenshot" alt="TMT Sales 2" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TMT+Set+2+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+        <!-- TMT Set 3 Content -->
+        <div id="drawer-tmt-set3" class="drawer-container hidden" onclick="event.stopPropagation()">
+            <button class="absolute top-6 right-6 text-gray-400 hover:text-white" onclick="closeDrawer()"><i class="fas fa-times"></i></button>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <div class="flex justify-center">
+                    <video class="video-player" controls>
+                        <source src="asset/TMT/Set 3/Set3.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">TMT Set 3 Insights</h3>
+                    <p class="text-gray-400 mb-6">Final validation and growth summary. Click image to expand.</p>
+                    <img src="asset/TMT/Set 3/Screenshot3.png" class="sales-screenshot" alt="TMT Sales 3" onclick="openFullView(this.src)" onerror="this.src='https://via.placeholder.com/800x450?text=TMT+Set+3+Sales+Data'">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+    <!-- Fullscreen Lightbox -->
+    <div id="fullview-overlay" onclick="closeFullView()">
+        <button class="absolute top-6 right-8 text-white/50 hover:text-white text-5xl">&times;</button>
+        <img id="fullview-img" src="" class="max-w-[95%] max-h-[90vh] object-contain rounded-lg shadow-2xl" alt="Full View">
+    </div>
+
+    <script>
+        // --- Page Loader ---
+        function hideLoader() {
+            const loader = document.getElementById('loader');
+            if (loader) {
+                loader.style.opacity = '0';
+                loader.style.visibility = 'hidden';
+            }
+        }
+
+        window.addEventListener('load', hideLoader);
+        
+        // Fallback: Force hide loader after 3 seconds if assets hang
+        setTimeout(hideLoader, 3000);
+
+        // --- Shared Typewriter Function ---
+        function typeWriter(element, text, speed = 50, callback) {
+            let i = 0;
+            element.innerHTML = '';
+            element.classList.add('typing-cursor');
+            const type = () => {
+                if (i < text.length) {
+                    element.innerHTML += text.charAt(i++);
+                    setTimeout(type, speed);
+                } else {
+                    element.classList.remove('typing-cursor');
+                    if (callback) callback();
+                }
+            };
+            type();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // --- Dynamic Title Logic ---
+            const dynamicTitle = document.getElementById('dynamic-title');
+            if (dynamicTitle) {
+                const titles = ["Dynamic Virtual Assistant", "Creative Web Developer"];
+                let titleIndex = 0;
+                const updateTitle = () => {
+                    dynamicTitle.style.opacity = '0';
+                    setTimeout(() => {
+                        titleIndex = (titleIndex + 1) % titles.length;
+                        dynamicTitle.textContent = titles[titleIndex];
+                        dynamicTitle.style.opacity = '1';
+                    }, 500);
+                };
+                dynamicTitle.textContent = titles[0];
+                dynamicTitle.style.opacity = '1';
+                setInterval(updateTitle, 4000);
+            }
+
+            // --- Hero Description Typing Effect ---
+            const heroDescEl = document.getElementById('hero-description');
+            if (heroDescEl) {
+                const heroText = "As a multifaceted professional, I uniquely operate at the intersection of innovative web development and high-efficiency virtual assistance. My passion lies in crafting beautiful, responsive, and functional websites from the ground up, ensuring a seamless user experience that captivates and converts. In parallel, I provide meticulous and proactive administrative support, empowering businesses to streamline operations and enhance productivity. This dual expertise allows me to not only build your digital presence but also to support its ongoing success. Explore my portfolio to discover how this powerful combination of technical skill and operational excellence can bring your vision to life and drive your projects forward.";
+                setTimeout(() => typeWriter(heroDescEl, heroText, 10), 800);
+            }
+
+            // --- Mobile Menu Toggle ---
+            const hamburgerButton = document.getElementById('hamburger-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+            hamburgerButton.addEventListener('click', () => {
+                hamburgerButton.classList.toggle('open');
+                mobileMenu.classList.toggle('opacity-0');
+                mobileMenu.classList.toggle('-translate-y-full');
+            });
+            mobileNavLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    hamburgerButton.classList.remove('open');
+                    mobileMenu.classList.add('opacity-0', '-translate-y-full');
+                });
+            });
+            
+            // --- "What I Offer" Slider ---
+            const servicesData = [
+                { title: 'Bespoke Web Development', description: 'I architect and engineer exceptional, high-performance digital experiences. Specializing in modern frameworks and clean code, I translate complex visions into responsive, scalable, and intuitive websites and applications that drive user engagement.', imageUrl: 'asset/Web Development.jpg' },
+                { title: 'E-commerce Strategy & Management', description: 'Elevate your online retail presence with expert e-commerce support. From meticulous product catalog management on platforms like Shopify to optimizing customer journeys and streamlining order fulfillment, I help drive growth and enhance brand loyalty.', imageUrl: 'asset/Ecom.jpg' },
+                { title: 'Virtual Executive Assistance', description: 'Achieve peak productivity with discreet and proactive executive support. I manage complex scheduling, confidential communications, and critical administrative tasks with precision, enabling you to focus on high-impact leadership and strategic goals.', imageUrl: 'asset/VA.jpeg' },
+                { title: 'GoHighLevel Platform Mastery', description: 'Unlock the full potential of your marketing and sales funnels. As a GoHighLevel specialist, I design, build, and manage sophisticated automated workflows, campaigns, and sub-accounts to maximize lead conversion and client retention.', imageUrl: 'asset/GHL.jpg' },
+                { title: 'Visual Content Enhancement', description: 'Refine your brand’s visual narrative through professional photo and video editing. I deliver polished, compelling, and on-brand visual assets, from precise color grading and retouching to dynamic video storytelling that captivates your audience.', imageUrl: 'asset/Editor.png' },
+                { title: 'Brand Identity & Logo Refinement', description: 'Strengthen your brand’s first impression. I provide expert logo editing and vectorization services, ensuring your visual identity is consistent, scalable, and impactful across all digital and print platforms.', imageUrl: 'asset/Logo.jpg' },
+                { title: 'Advanced Technical Support', description: 'Ensure seamless operations with reliable, expert technical support. I diagnose and resolve complex issues related to cPanel, hosting, and software with efficiency, minimizing downtime and maintaining user satisfaction.', imageUrl: 'asset/tech.jpg' },
+                { title: 'Strategic Email Marketing', description: 'Nurture leads and drive conversions with data-driven email marketing campaigns. I manage the entire lifecycle, from designing compelling, high-engagement templates to audience segmentation and performance analytics.', imageUrl: 'asset/Email.png' }
+            ];
+
+            const serviceTrack = document.getElementById('service-slider-track');
+            if(serviceTrack) {
+                serviceTrack.innerHTML = servicesData.map((service, index) => `
+                    <div class="service-slide p-2" data-index="${index}">
+                        <img src="${service.imageUrl}" alt="${service.title}">
+                    </div>
+                `).join('');
+                
+                let currentIndex = 0;
+                const slides = serviceTrack.querySelectorAll('.service-slide');
+                const titleEl = document.getElementById('service-title');
+                const descEl = document.getElementById('service-desc');
+                const textContentEl = document.getElementById('service-text-content');
+                const viewport = document.getElementById('service-slider-viewport');
+
+                const updateSlider = (newIndex) => {
+                    currentIndex = (newIndex + slides.length) % slides.length;
+                    
+                    const activeSlide = slides[currentIndex];
+                    const slideWidth = activeSlide.offsetWidth;
+                    const viewportWidth = viewport.offsetWidth;
+                    const offset = - (currentIndex * slideWidth) + (viewportWidth / 2) - (slideWidth / 2);
+
+                    serviceTrack.style.transform = `translateX(${offset}px)`;
+
+                    slides.forEach((slide, index) => {
+                        slide.classList.toggle('active', index === currentIndex);
+                    });
+
+                    textContentEl.style.opacity = 0;
+                    setTimeout(() => {
+                        titleEl.textContent = servicesData[currentIndex].title;
+                        descEl.textContent = servicesData[currentIndex].description;
+                        textContentEl.style.opacity = 1;
+                    }, 300);
+                };
+
+                document.getElementById('service-next').addEventListener('click', () => updateSlider(currentIndex + 1));
+                document.getElementById('service-prev').addEventListener('click', () => updateSlider(currentIndex - 1));
+                
+                serviceTrack.addEventListener('click', e => {
+                    const slide = e.target.closest('.service-slide');
+                    if (slide) {
+                        const index = parseInt(slide.dataset.index, 10);
+                        updateSlider(index);
+                    }
+                });
+
+                window.addEventListener('resize', () => updateSlider(currentIndex));
+                updateSlider(0);
+            }
+
+            // --- Reviews Slider Logic ---
+            const reviewsData = [
+                { name: 'Mathew D.', title: 'Executive Member', text: "John's ability to develop a sleek corporate site and provide seamless virtual assistance was a game-changer. His professionalism and technical skill are top-notch." },
+                { name: 'Sarra A.', title: 'Shop Owner', text: "Working with John was a dream. He took my vision for an online store and turned it into a beautiful, functional reality. Sales have increased since we launched the new Shopify site!" },
+                { name: 'Douglas M.', title: 'Bakery Owner', text: "I needed a simple but elegant website for my bakery, and John delivered perfectly. He was patient, understood my needs, and created a site that my customers love." },
+                { name: 'Michael A.', title: 'Medical Doctor', text: "John developed a professional and informative website for my practice. His attention to detail and understanding of the need for clarity and trust in the medical field was impressive." },
+                { name: 'Alice G.', title: 'Business Owner', text: "The virtual assistance I've received from John has been invaluable. He's organized, efficient, and has freed up so much of my time to focus on growing my business. Highly recommended." },
+                { name: 'Tim L.', title: 'Shopify Affiliate', text: "John's expertise in Shopify is top-notch. He understands the platform inside and out and helped optimize my affiliate sites for better performance and conversion." }
+            ];
+            const reviewsTrack = document.getElementById('reviews-slider-track');
+            if (reviewsTrack) {
+                reviewsTrack.innerHTML = reviewsData.map(r => `
+                    <div class="review-slide"><div class="bg-black border border-white/10 rounded-2xl p-8 shadow-lg interactive-card flex flex-col h-full">
+                        <div class="flex items-center mb-4">${Array(5).fill('<svg class="w-5 h-5 text-yellow-400 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/></svg>').join('')}</div>
+                        <p class="font-semibold text-gray-300 mb-4 flex-grow">"${r.text}"</p>
+                        <div class="mt-auto"><p class="font-bold text-lg text-white">${r.name}</p><p class="text-sm text-gray-400 font-medium">${r.title}</p></div>
+                    </div></div>`).join('');
+                
+                let reviewIndex = 0;
+                const reviewSlides = Array.from(reviewsTrack.children);
+                const getSlidesPerPage = () => window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+                
+                const updateReviewSlider = () => {
+                    const slideWidthPercentage = 100 / (window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 768 ? 2 : 1));
+                    reviewsTrack.style.transform = `translateX(${-reviewIndex * slideWidthPercentage}%)`;
+                };
+
+
+                document.getElementById('next-slide').addEventListener('click', () => {
+                    if (reviewIndex < reviewSlides.length - getSlidesPerPage()) {
+                        reviewIndex++;
+                        updateReviewSlider();
+                    }
+                });
+                document.getElementById('prev-slide').addEventListener('click', () => {
+                    if (reviewIndex > 0) {
+                        reviewIndex--;
+                        updateReviewSlider();
+                    }
+                });
+                window.addEventListener('resize', () => {
+                    reviewIndex = 0;
+                    updateReviewSlider();
+                });
+            }
+
+            // --- Contact Form AJAX Submission ---
+            const form = document.getElementById('contact-form');
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    const formData = new FormData(form);
+                    const resultEl = document.getElementById('form-result');
+                    resultEl.innerHTML = "Sending...";
+                    fetch('https://api.web3forms.com/submit', { method: 'POST', body: formData })
+                        .then(r => r.json()).then(data => {
+                            resultEl.style.color = data.success ? "var(--primary-dark)" : "#ff6b6b";
+                            resultEl.innerHTML = data.success ? "Your message sent successfully!" : `Error: ${data.message}`;
+                            if(data.success) form.reset();
+                        }).catch(() => {
+                            resultEl.style.color = "#ff6b6b";
+                            resultEl.innerHTML = "An error occurred. Please try again.";
+                        });
+                    setTimeout(() => resultEl.innerHTML = '', 5000);
+                });
+            }
+        });
+
+        // --- Intersection Observer Animations ---
+        const animationObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !entry.target.dataset.animated) {
+                    entry.target.dataset.animated = "true";
+                    if (entry.target.id === 'biography-text') {
+                        const bios = [
+                            { el: document.getElementById('bio-p1'), text: "Hi, I'm John Cedrick Pacino, a web developer and UI/UX designer with a passion for creating beautiful, functional, and user-centered digital experiences. With a background in corporate process management, I bring a unique blend of precision, efficiency, and creativity to every project." },
+                            { el: document.getElementById('bio-p2'), text: "I believe that design is about more than just making things look pretty – it's about solving problems and creating intuitive, enjoyable experiences for users." },
+                            { el: document.getElementById('bio-p3'), text: "Whether I'm working on a website, a mobile app, or another digital product, I bring my commitment to design excellence and user-centered thinking to every project. I look forward to the opportunity to bring my skills and passion to your next project." }
+                        ];
+                        // --- UPDATED: Faster Typing Speed ---
+                        typeWriter(bios[0].el, bios[0].text, 10, () => typeWriter(bios[1].el, bios[1].text, 10, () => typeWriter(bios[2].el, bios[2].text, 10)));
+                    }
+                    if (entry.target.id === 'stats-section') {
+                        document.querySelectorAll('.counter').forEach(el => {
+                            const target = +el.dataset.target;
+                            el.innerText = '0';
+                            const update = () => {
+                                const current = +el.innerText;
+                                const increment = Math.ceil(target / 100);
+                                if (current < target) {
+                                    el.innerText = Math.min(current + increment, target);
+                                    setTimeout(update, 20);
+                                } else {
+                                    el.innerText = target + "+";
+                                }
+                            };
+                            update();
+                        });
+                    }
+                }
+            });
+        }, { threshold: 0.6 });
+
+        const bioEl = document.getElementById('biography-text');
+        const statsEl = document.getElementById('stats-section');
+        if(bioEl) animationObserver.observe(bioEl);
+        if(statsEl) animationObserver.observe(statsEl);
+
+        // --- UPDATED: General Scroll Reveal (Re-triggers on scroll up) ---
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { 
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                } else {
+                    entry.target.classList.remove('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        
+        // --- Header Scroll Effect ---
+        const header = document.getElementById('header');
+        if (window.scrollY <= 50) header.classList.add('at-top');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 50);
+            header.classList.toggle('at-top', window.scrollY <= 50);
+        });
+
+        // --- Video Showcase Functions ---
+        function openDrawer(setId) {
+            const overlay = document.getElementById('drawer-overlay');
+            const drawer = document.getElementById(`drawer-${setId}`);
+            if(overlay && drawer) {
+                overlay.classList.add('active');
+                document.querySelectorAll('.drawer-container').forEach(d => d.classList.add('hidden'));
+                drawer.classList.remove('hidden');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeDrawer() {
+            const overlay = document.getElementById('drawer-overlay');
+            if(overlay) {
+                overlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                document.querySelectorAll('video').forEach(v => v.pause());
+            }
+        }
+
+        function openFullView(src) {
+            const overlay = document.getElementById('fullview-overlay');
+            const img = document.getElementById('fullview-img');
+            if(overlay && img) {
+                img.src = src;
+                overlay.classList.add('active');
+            }
+        }
+
+        function closeFullView() {
+            const overlay = document.getElementById('fullview-overlay');
+            if(overlay) overlay.classList.remove('active');
+        }
+
+        // --- Project Category Toggle ---
+        function showCategory(category) {
+            const gridWebsite = document.getElementById('grid-website');
+            const gridVideo = document.getElementById('grid-video');
+            const tabWebsite = document.getElementById('tab-website');
+            const tabVideo = document.getElementById('tab-video');
+
+            if (category === 'website') {
+                gridWebsite.classList.remove('hidden');
+                gridWebsite.classList.add('grid');
+                gridVideo.classList.add('hidden');
+                gridVideo.classList.remove('grid');
+
+                tabWebsite.classList.add('active');
+                tabWebsite.classList.remove('inactive');
+                tabVideo.classList.remove('active');
+                tabVideo.classList.add('inactive');
+            } else {
+                gridWebsite.classList.add('hidden');
+                gridWebsite.classList.remove('grid');
+                gridVideo.classList.remove('hidden');
+                gridVideo.classList.add('grid');
+
+                tabVideo.classList.add('active');
+                tabVideo.classList.remove('inactive');
+                tabWebsite.classList.remove('active');
+                tabWebsite.classList.add('inactive');
+            }
+        }
+    </script>
+</body>
+</html>
